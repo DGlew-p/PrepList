@@ -8,10 +8,18 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
-    "morgan": "~1.9.1"
+    "mongoose": "^5.12.14",
+    "morgan": "~1.9.1",
+    "nutrient-database": "^1.1.8",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9"
   }
 }
