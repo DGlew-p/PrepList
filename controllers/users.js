@@ -8,16 +8,25 @@ function index(req, res, next) {
     User.find(modelQuery)
     .sort(sortKey).exec(function(err, users) {
       if (err) return next(err);
-      res.render('users/index.ejs', { 
-        user: req.user,
+      res.render('users/index', { 
         users, 
+        user: req.user,
         name: req.query.name, 
         sortKey,
        });
     });
   }
 
+  function show(req, res) {
+    User.findById(req.params.id, function (err, user) {
+        res.render("users/show", { title: "User Detail", user});
+      });
+  }
+
+
+  
 
   module.exports = {
     index,
+    show
   };
