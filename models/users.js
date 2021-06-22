@@ -1,31 +1,41 @@
 const mongoose = require('mongoose');
-const Ingredient = require("../models/ingredients");
-// optional shortcut to the mongoose.Schema class
+const Ingredient = require("../models/ingredients").schema;
 const Schema = mongoose.Schema;
+
+const itemSchema = new Schema({
+  name:String,
+  nutrition:[Ingredient],
+  amount:Number,
+  }, {
+      timestamps: true
+    });
+
 
 
 const recipesSchema = new Schema({
   name:String,
-  ingredients:[{Ingredient, amount:Number}],
+  ingredients:[itemSchema],
   amount:Number,
   Method:String,
-  notes:[String],
+  notes:String
   }, {
       timestamps: true
     });
 
     const prepListsSchema = new Schema({
       name:String,
-      recipes:[recipesSchema],
-      notes:[String],
+      recipe:[recipesSchema],
+      note:[String],
       }, {
           timestamps: true
         });
 
 
 const usersSchema = new Schema({
-recipes:[recipesSchema],
-preplists:[prepListsSchema],
+name: String,
+email: String,
+recipe:[recipesSchema],
+preplist:[prepListsSchema],
 googleId: String
 }, {
     timestamps: true
