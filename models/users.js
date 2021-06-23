@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
   name:String,
+  method:String,
   nutrition:[Ingredient],
   amount:Number,
   }, {
@@ -16,7 +17,7 @@ const recipesSchema = new Schema({
   name:String,
   ingredients:[itemSchema],
   amount:Number,
-  Method:String,
+  method:String,
   notes:String
   }, {
       timestamps: true

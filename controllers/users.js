@@ -19,13 +19,12 @@ function index(req, res, next) {
 
   function show(req, res) {
     User.findById(req.params.id, function (err, user) {
-        res.render("users/show", { title: "User Detail", user});
+        res.render("users/show", { title: "Your Dashboard", user});
       });
   }
 
 
   
-
   module.exports = {
     index,
     show

@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <body >
+  <nav>
+    <a href="/<%= user._id %>/recipes/new">Add a new Recipe</a>
+    <a href="/<%= user._id %>/recipes"> back to recipes</a>
+  </nav>
         <main>
-          <h1><%= title %></h1>
+          <h1><%= user.name %>'s  Dashboard</h1>
           <section id="show-page">
             
-            <div><%= user.name %>Dashboard</div>
-            <div>Recipies</div>
+         
             <section id="show-page"></section>
             <table>
                 <tr>
                     <th>Recipes</th>
                     <th>Updated</th>
                
-                <% user.recipie.forEach(function(r){ %>
+                <% user.recipe.forEach(function(r){ %>
               </tr>
               <td><%= r.name%></td>
               <td><%= r.updatedAt.toLocaleString()%></td>
               <% }); %>
             </table>
           </section>
-            <div>Preplists</div>
             <section id="show-page"></section>
             <table>
               <tr>

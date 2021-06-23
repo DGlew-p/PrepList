@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Make a Recipe</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/<%= user._id %>/recipes/new">Add a new Recipe</a>
+      <a href="/<%= user._id %>"> back to recipes</a>
+    </nav>
+    <h2>Enter a new Recipe</h2>
+    <form id="new-form" action="/users/<%= user.id%>/recipe" method="POST">
+      <label
+        >Recpie Name:<br />
+        <input type="String" name="name" /> </label
+      ><br />
+      <div>Ingredients</div>
+    </section>
+    <section id="show-page"></section>
+    <table>
+      <tr>
+        <th>Ingredient</th>
+        <th>type</th>
+        <th>Amount</th>
+
+        <% user.recipe.ingredients.forEach(function(i){ %>
+      </tr>
+      <td><%= i.name%></td>
+      <td><%= i.method%></td>
+      <td><%= i.amount%></td>
+      <% }); %>
+    </table>
+  </section>
+
+  <section >
+    <form
+      id="add-destination-form"
+      method="POST"
+      action="/users/<%= user.id %>/<%= recpie.id %>/ingredients"
+    >
+    <label
+    >name:<br />
+    <input type="Number" name="name" /> </label
+  ><br />
+
+  <label
+    >method:<br />
+    <input type="String" name="method" /> </label
+  ><br />
+
+  <label
+    >Amount:<br />
+    <input type="number" name="amount" /> </label
+  ><br /> <br>
+        <input type="submit" value="Add Ingredient" />
+  
+    </form>
+  </section>
+
+      <label
+        >yeild:<br />
+        <input type="Number" name="amount" /> </label
+      ><br />
+
+      <label
+        >method:<br />
+        <input type="String" name="method" /> </label
+      ><br />
+
+      <label
+        >Notes:<br />
+        <input type="String" name="notes" /> </label
+      ><br />
+    </form>
+  </body>
+</html>

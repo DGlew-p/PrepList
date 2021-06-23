@@ -29,14 +29,15 @@
     <h1>Profiles</h1>
 
 <section>
-  <tbody>
     <% users.forEach(function(u,index){%>
-    <tr>
-      <td><%= u.name%></td>
-     
-      <td><a href="/users/<%=u.id%>">Recipes</a></td>
-    </tr>
+      <ul>
+      <li><%= u.name%>
+    <a href="/<%=u.id%>">Dashboard</a>
+  </li>
+    </ul>
+ 
     <%})%>
+  </tbody>
 </section>
 
 
