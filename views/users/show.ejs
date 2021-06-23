@@ -22,7 +22,7 @@
                     <th>Recipes</th>
                     <th>Updated</th>
                
-                <% user.recipe.forEach(function(r){ %>
+                <%recipe.forEach(function(r){ %>
               </tr>
               <td><a href="/recpies/<%=r.id%>"><%= r.name%></a></td>
               <td><%= r.updatedAt.toLocaleString()%></td>

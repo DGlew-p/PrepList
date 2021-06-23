@@ -6,12 +6,6 @@ router.get('/users', usersCtrl.index);
 
 router.get("/:id", usersCtrl.show)
 
-// router.post("/", usersCtrl.create);
-// router.get("/new", usersCtrl.new);
-
-
-
-
 
 
 

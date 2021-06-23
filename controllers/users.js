@@ -1,6 +1,5 @@
+const Recipe = require("../models/recipes");
 const User = require('../models/users');
-
-
 
 function index(req, res, next) {
     let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
@@ -19,8 +18,11 @@ function index(req, res, next) {
 
   function show(req, res) {
     User.findById(req.params.id, function (err, user) {
-        res.render("users/show", { title: "Your Dashboard", user});
+      console.log(user+'user show controler')
+      Recipe.find({ user: req.params.id }, function (err, recipe) {
+        res.render("users/show", { title: "Your Dashboard", user,recipe});
       });
+    });
   }
 
 

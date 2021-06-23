@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const request = require('request');
+const ingredientsCtrl = require("../controllers/ingredients");
 
-router.get('/',ingredientsCtrl.index)
-router.get('/new',ingredientsCtrl.new)
-router.post('/',ingredientsCtrl.create)
-router.get('/:id',ingredientsCtrl.show)
+
+router.post('/recpies/:id/ingredients',ingredientsCtrl.create)
+
+
+module.exports = router;
