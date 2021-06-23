@@ -19,7 +19,7 @@ require('./config/passport');
 
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
-var recipesRouter = require("./routes/recipes");
+var recipesRouter = require('./routes/recipes');
 // const preplistsRouter = require("./routes/preplists");
 // const ingredientsRouter = require("./routes/ingredients");
 
@@ -46,7 +46,7 @@ app.use(passport.session());
 
 app.use('/', indexRoutes);
 app.use('/', usersRoutes);
-app.use('/recipes', recipesRouter);
+app.use('/', recipesRouter);
 // app.use('/',preplistsRouter)
 // app.use('/',ingredientsRouter)
 

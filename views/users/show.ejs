@@ -8,8 +8,8 @@
 </head>
 <body>
   <nav>
-    <!-- <a href="/<%= user.id %>/recipes/new">Add a new Recipe</a>
-    <a href="/<%= user.id %>/recipes"> back to recipes</a> -->
+    <a href="/<%= user.id %>/recipes/new">Add a new Recipe</a>
+    <a href="/<%= user.id %>/recipes"> back to recipes</a>
   </nav>
         <main>
           <h1><%= user.name %>'s  Dashboard</h1>
@@ -24,7 +24,7 @@
                
                 <% user.recipe.forEach(function(r){ %>
               </tr>
-              <td><%= r.name%></td>
+              <td><a href="/recpies/<%=r.id%>"><%= r.name%></a></td>
               <td><%= r.updatedAt.toLocaleString()%></td>
               <% }); %>
             </table>

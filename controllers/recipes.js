@@ -1,9 +1,13 @@
 const User = require('../models/users');
 
+
 function show(req, res) {
     User.findById(req.params.id, function (err, user) {
+      console.log(user+'user show controler')
+      user.recipe.findById({}, function (err, recipe) {  console.log(ticket+'user show controler'),
         res.render(":id/recipes/show", { title: "Recipe Details", recipe, user});
       });
+    });
   }
   function newRecipe(req, res) {
     console.log('new RECP')
