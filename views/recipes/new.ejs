@@ -10,7 +10,7 @@
   <body>
     <nav>
       <a href="/recipes/new">Add a new Recipe</a>
-      <a href="/<%= user._id %>"> back to recipes</a>
+      <a href="/<%= user.id %>"> back to recipes</a>
     </nav>
     <h2>Enter a new Recipe</h2>
     <form id="new-form" action="/users/<%= user.id%>/recipe" method="POST">

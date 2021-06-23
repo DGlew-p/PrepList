@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const Ingredient = require("../models/ingredients").schema;
+// const Ingredient = require("../models/ingredients").schema;
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
   name:String,
   method:String,
-  nutrition:[Ingredient],
+  // nutrition:[Ingredient],
   amount:Number,
   }, {
       timestamps: true

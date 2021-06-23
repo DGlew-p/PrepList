@@ -3,10 +3,10 @@ var router = express.Router();
 const recipesCtrl= require('../controllers/recipes')
 const request = require('request');
 
-router.post('/',recipesCtrl.create)
-router.get('/:id',recipesCtrl.show)
-router.get('/:id/recipes/new',recipesCtrl.new)
 
+router.get('/:id/recipes/new',recipesCtrl.new)
+router.get('/:id/recipes/:id',recipesCtrl.show)
+router.post('/recipes/:id',recipesCtrl.update)
 
 
 module.exports = router;
