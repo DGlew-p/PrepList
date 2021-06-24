@@ -9,11 +9,11 @@ router.get('/', function(req, res) {
 });
   //// reDir From Login-Button to Google
   
+// Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
-
 
 /// handles the return from the consent screen
 router.get('/oauth2callback', passport.authenticate(

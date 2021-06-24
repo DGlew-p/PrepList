@@ -8,15 +8,15 @@
 </head>
 <body>
   <nav>
-    <a href="/<%= user.id %>/recipes/new">Add a new Recipe</a>
-    <a href="/<%= user.id %>/recipes"> back to recipes</a>
+    <a href="/<%= user._id %>/recipes/new">Add a new Recipe</a>
+    <a href="/<%= user._id %>/recipes"> back to recipes</a>
   </nav>
         <main>
           <h1><%= user.name %>'s  Dashboard</h1>
-          <section id="show-page">
+         
             
          
-            <section id="show-page"></section>
+            <section id="show-page">
             <table>
                 <tr>
                     <th>Recipes</th>
@@ -24,12 +24,12 @@
                
                 <%recipe.forEach(function(r){ %>
               </tr>
-              <td><a href="/recpies/<%=r.id%>"><%= r.name%></a></td>
-              <td><%= r.updatedAt.toLocaleString()%></td>
+              <td><a href="/recipes/<%=r.id%>"><%= r.name%></a></td>
+              <td><%= r.updatedAt.toDateString()%></td>
               <% }); %>
             </table>
           </section>
-            <section id="show-page"></section>
+            <section id="show-page">
             <table>
               <tr>
                 <th>Prep List</th>
@@ -37,7 +37,7 @@
                 <% user.preplist.forEach(function(p){ %>
               </tr>
               <td><%= p.name%></td>
-              <td><%= p.updatedAt.toLocaleString()%></td>
+              <td><%= p.updatedAt.toDateString()%></td>
               <% }); %>
             </table>
           </section>
