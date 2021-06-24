@@ -4,9 +4,9 @@ const User = require('../models/users');
   function newRecipe(req, res) {
     console.log('new RECP')
     User.findById(req.params.id, function (err, user) {
-      console.log(user+'user show controler')
-      Recipe.find({ user: req.params.id }, function (err, recipe) {  console.log(recipe+'user show controler'),
-        res.render("recipes/new",{user, recipe});
+      Recipe.find({ user: req.params.id }, function (err, recipe) {
+      console.log(recipe+'RCP new controler')
+     res.render("recipes/new",{user,recipe});
     });
   });
   }
@@ -17,14 +17,14 @@ const User = require('../models/users');
       if (err) {
         console.log(err);
       }
-      res.redirect(`/users/${user.id}`);
+      console.log(recipe+'create R'), res.redirect(`/users/${recipe.user}`);
     });
   }
 
 function show(req, res) {
     User.findById(req.params.id, function (err, user) {
       console.log(user+'user show controler')
-      Recipe.find({ user: req.params.id }, function (err, recipe) {  console.log(recipe+'user show controler'),
+      Recipe.find({ user: req.params.id }, function (err, recipe) {  console.log(recipe+'recip show controler'),
         res.render(":id/recipes/show", { title: "Recipe Details", recipe, user});
       });
     });

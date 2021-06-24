@@ -13,52 +13,15 @@
       <a href="/<%= user.id %>"> back to recipes</a>
     </nav>
     <h2>Enter a new Recipe</h2>
-    <form id="new-form" action="/users/<%= user.id%>/recipe" method="POST">
+    <form id="new-form" action="/users/<%= user.id%>/recipes" method="POST">
+      user id:<br />
+      <input type="text" name="user" value="<%=user.id%>" /> </label
+    > <br />
       <label
         >Recpie Name:<br />
         <input type="String" name="name" /> </label
       ><br />
-      <div>Ingredients</div>
-    </section>
-    <section id="show-page"></section>
-    <table>
-      <tr>
-        <th>Ingredient</th>
-        <th>type</th>
-        <th>Amount</th>
-
-        <% recipe.ingredients.forEach(function(i){ %>
-      </tr>
-      <td><%= i.name%></td>
-      <td><%= i.method%></td>
-      <td><%= i.amount%></td>
-      <% }); %>
-    </table>
-  </section>
-
-  <section >
-    <form
-      id="add-destination-form"
-      method="POST"
-      action="/users/<%= user.id %>/<%= recpie.id %>/ingredients"
-    >
-    <label
-    >name:<br />
-    <input type="Number" name="name" /> </label
-  ><br />
-
-  <label
-    >method:<br />
-    <input type="String" name="method" /> </label
-  ><br />
-
-  <label
-    >Amount:<br />
-    <input type="number" name="amount" /> </label
-  ><br /> <br>
-        <input type="submit" value="Add Ingredient" />
-  
-    </form>
+     
   </section>
 
       <label
@@ -75,6 +38,36 @@
         >Notes:<br />
         <input type="String" name="notes" /> </label
       ><br />
+
+      <input type="submit" name="" value="add Recipe" />
     </form>
+    <div>Ingredients</div>
+
+
+    <section >
+      <form
+        id="add-ingredient-form"
+        method="POST"
+        action="/users/<%= user.id %>/recipes"
+      >
+   
+      <label
+      >name:<br />
+      <input type="String" name="name" /> </label
+    ><br />
+  
+    <label
+      >method:<br />
+      <input type="String" name="method" /> </label
+    ><br />
+  
+    <label
+      >Amount:<br />
+      <input type="number" name="amount" /> </label
+    ><br /> <br>
+          <input type="submit" value="Add Ingredient" />
+    
+      </form>
+
   </body>
 </html>

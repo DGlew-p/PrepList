@@ -5,10 +5,14 @@ const request = require('request');
 
 
 // router.get('/recipes',recipesCtrl.index)
+router.post('/users/:id/recipes', recipesCtrl.create);
+router.get('/:id/recipes/new',recipesCtrl.new)
 router.get('/:id/recipes',recipesCtrl.show)
 router.get('/:id/recipes/new',recipesCtrl.new)
 router.get('/recipes/:id/edit',recipesCtrl.edit)
-router.post('/recipes', recipesCtrl.create);
+
+
+
 router.put('/recipes/:id',recipesCtrl.update)
 router.delete('recipes/:id',recipesCtrl.delete)
 
