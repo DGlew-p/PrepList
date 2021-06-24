@@ -7,6 +7,45 @@
     <title>ONE RECIPE</title>
 </head>
 <body>
+    <h1><%= title %></h1>
+      <section id="show-page">
+        <div>Recipe</div>
+        <div><%= recipe.name %></div>
+        <div>Yeild</div>
+        <div><%= recipe.amount %></div>
+        <div>Method</div>
+        <div><%= recipe.method%></div>
+        <div>Notes</div>
+        <div><%=recipe.notes%></div>
+        <div>ingredients</div>
+      </section>
+  
+  
+      <section >
+        <form
+          id="add-ingredient-form"
+          method="POST"
+          action="/users/<%=user._id%>/recipe/<%=recipe._id%>/ingredients"
+        >
+        <label
+        >name:<br />
+        <input type="String" name="name" /> </label
+      ><br />
     
+      <label
+        >method:<br />
+        <input type="String" name="method" /> </label
+      ><br />
+    
+      <label
+        >Amount:<br />
+        <input type="number" name="amount" /> </label
+      ><br /> <br>
+            <input type="submit" value="Add Ingredient" />
+      
+        </form>
+      </section>
+        <table>
+        
 </body>
 </html>

@@ -4,7 +4,6 @@ const request = require('request');
 const ingredientsCtrl = require("../controllers/ingredients");
 
 
-router.post('/recpies/:id/ingredients',ingredientsCtrl.create)
-
+router.post('/users/:id/recipes/:id/ingredients',ingredientsCtrl.create)
 
 module.exports = router;

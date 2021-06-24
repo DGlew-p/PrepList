@@ -9,29 +9,20 @@ router.get('/', function(req, res) {
 });
   //// reDir From Login-Button to Google
   
-// Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
 
+
 /// handles the return from the consent screen
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/users',
-    failureRedirect : '/users'
+    successRedirect : '/',
+    failureRedirect : '/'
   }
 ));
-
-
-/// logs out of the app  / / clears the user data
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/users');
-});
-
-
 
 
 

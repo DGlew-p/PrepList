@@ -24,7 +24,7 @@
                
                 <%recipe.forEach(function(r){ %>
               </tr>
-              <td><a href="/recipes/<%=r.id%>"><%= r.name%></a></td>
+              <td><a href="/users/<%= user._id %>/recipes/<%=r.id%>"><%= r.name%></a></td>
               <td><%= r.updatedAt.toDateString()%></td>
               <% }); %>
             </table>
