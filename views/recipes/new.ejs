@@ -9,8 +9,8 @@
   </head>
   <body>
     <nav>
-      <a href="/recipes/new">Add a new Recipe</a>
-      <a href="/<%= user._id %>"> back to Dashboard</a>
+     
+      <a href="/users"> back to Dashboard</a>
     </nav>
     <h2>Enter a new Recipe</h2>
     <form id="new-form" action="/users/<%= user._id%>/recipes" method="POST">
@@ -39,35 +39,13 @@
         <input type="String" name="notes" /> </label
       ><br />
 
-      <input type="submit" name="" value="add Recipe" />
+      <input type="submit" name="" value="Continue to add Ingredients" />
     </form>
-    <div>Ingredients</div>
+   
 
 
     <section >
-      <form
-        id="add-ingredient-form"
-        method="POST"
-        action="/users/<%= user._id %>/recipes"
-      >
-   
-      <label
-      >name:<br />
-      <input type="String" name="name" /> </label
-    ><br />
-  
-    <label
-      >method:<br />
-      <input type="String" name="method" /> </label
-    ><br />
-  
-    <label
-      >Amount:<br />
-      <input type="number" name="amount" /> </label
-    ><br /> <br>
-          <input type="submit" value="Add Ingredient" />
-    
-      </form>
+
 
   </body>
 </html>
