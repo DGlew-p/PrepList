@@ -17,18 +17,28 @@ const User = require('../models/users');
       if (err) {
         console.log(err);
       }
-      console.log(recipe+'create R'), res.redirect(`/users/${recipe.user}`);
+      console.log(recipe+'create R'), 
+      res.redirect(`/users/${user.id}/recipe/${user.id}`);
     });
   }
 
+
+
 function show(req, res) {
-    User.findById(req.params.id, function (err, user) {
-      console.log(user+'user show controler')
-      Recipe.find({ user: req.params.id }, function (err, recipe) {  console.log(recipe+'recip show controler'),
-        res.render(":id/recipes/show", { title: "Recipe Details", recipe, user});
+  User.findById(req.params._id, function (err, user) {
+      Recipe.find({users:user}, function (err, recipe) {  
+        console.log(user+'recip show controler USER')
+        console.log(recipe+'recip show controler'),
+        res.render("recipes/show", { title: "Recipe Details", recipe, user});
       });
     });
   }
+
+
+
+
+
+
 
 function update(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
