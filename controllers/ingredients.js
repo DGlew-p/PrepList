@@ -9,7 +9,7 @@ function create(req, res) {
     recipe.save(function(err) {
             if (err) console.log(err);
             console.log('INGT CREAT')
-        res.redirect(` /users/${user._id}/recipe/${recipe._id}`);
+        res.redirect(`/recipe/${recipe._id}`);
       });
     });
   }

@@ -23,14 +23,20 @@ function create(req, res) {
 }
 
 
-
-
 function show(req, res) {
   Recipe.findById(req.params.id, function (err, recipe) {
     console.log(recipe + "recip show controler"),
       res.render("recipes/show", { title: "Recipe Details", recipe });
   });
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -29,11 +29,12 @@
     <% users.forEach(function(u,index){%>
       <ul>
       <li><%= u.name%>
-    <a href="/users/<%=u._id%>">Dashboard</a>
-  </li>
-    </ul>
- 
-    <%})%>
+      <% if (u._id.equals(user && user._id)) { %>
+        <a href="/users/<%=u._id%>">Dashboard</a>      
+      <% } %>
+      </li>
+      </ul>
+  <%})%>
   </tbody>
 </section>
 
