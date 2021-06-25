@@ -29,8 +29,8 @@ Part 1 of a personal project to build the tools that I wish I had in a previous 
 please click on this link to visit the site:
 * https://mypreplist.herokuapp.com/users
 
-check out the plan on my Trello Board
-*https://trello.com/b/tmotlVh5/project-2
+check out the plan on my Trello Board:
+* https://trello.com/b/tmotlVh5/project-2
 
 ## Planning For Future enhancement
 
