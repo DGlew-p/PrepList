@@ -25,18 +25,18 @@
     </div>
     <h1>Profiles</h1>
 
-<section>
-    <% users.forEach(function(u,index){%>
-      <ul>
-      <li><%= u.name%>
-    
-        <a href="/users/<%=u._id%>">Dashboard</a>      
-   
-      </li>
-      </ul>
-  <%})%>
-  </tbody>
-</section>
+    <section>
+      <% users.forEach(function(u,index){%>
+        <ul>
+        <li><%= u.name%>
+        <% if (u._id.equals(user && user._id)) { %>
+          <a href="/users/<%=u._id%>">Dashboard</a>      
+        <% } %>
+        </li>
+        </ul>
+    <%})%>
+    </tbody>
+  </section>
 
 
    
