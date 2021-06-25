@@ -11,14 +11,17 @@ function create(req, res) {
     });
   }
 
-  function deleteIng(req, res) {
-    Recipe.findById(req.params.id, async function(err, recipe) {
-    await recpie.ingredients.findByIdAndDelete(req.params.id);
-    res.redirect (`/recipes/${recipe._id}`);
-  })
-}
+  // function deleteIng(req, res) {
+  //   console.log('Delete ing')
+  //  Recipe.find({}, function(err, recipe){ 
+  //   recipe.itemSchema.id.findByIdAndDelete(req.params.itemSchema_id)
+  //   res.redirect (`/recipes/`);
+  //  })
+  // }
+  
+  
 
 module.exports = {
   create,
-  delete:deleteIng
+  // delete:deleteIng
 };
