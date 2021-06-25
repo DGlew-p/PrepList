@@ -2,7 +2,6 @@ const Recipe = require("../models/recipes");
 const User = require('../models/users');
 
 function show(req, res) {
-  console.log('user show')
   User.findById(req.params.id, function (err, user) {
     Recipe.find({ user: req.params.id }, function (err, recipe) {
       res.render("users/show", { title: "Your Dashboard", user,recipe});

@@ -10,12 +10,12 @@
   <body>
     <nav>
      
-      <a href="/users"> back to Dashboard</a>
+      <a href="/users/<%=user._id%>"> back to Dashboard</a>
     </nav>
     <h2>Enter a new Recipe</h2>
     <form id="new-form" action="/users/<%= user._id%>/recipes" method="POST">
-      user id:<br />
-      <input type="text" name="user" value="<%=user._id%>" /> </label
+    
+      <input type="hidden" name="user" value="<%=user._id%>" /> </label
     > <br />
       <label
         >Recpie Name:<br />
@@ -31,12 +31,12 @@
 
       <label
         >method:<br />
-        <input type="String" name="method" /> </label
+        <textarea type="String" name="method" rows='6'></textarea> </label
       ><br />
 
       <label
         >Notes:<br />
-        <input type="String" name="notes" /> </label
+        <textarea type="String" name="notes" rows='6' > </textarea> </label
       ><br />
 
       <input type="submit" name="" value="Continue to add Ingredients" />

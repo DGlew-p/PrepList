@@ -14,7 +14,6 @@
         <main>
           <h1><%= user.name %>'s  Dashboard</h1>
          
-            
          
             <section id="show-page">
             <table>
@@ -24,25 +23,17 @@
                
                 <%recipe.forEach(function(r){ %>
               </tr>
-              <td><a href="/users/<%= user._id %>/recipes/<%=r.id%>"><%= r.name%></a></td>
+              <td><a href="/recipes/<%=r._id%>"><%= r.name%></a></td>
               <td><%= r.updatedAt.toDateString()%></td>
+             <td> <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE Recipe</button></td>
+              </form>
               <% }); %>
             </table>
           </section>
-            <section id="show-page">
-            <table>
-              <tr>
-                <th>Prep List</th>
-                <th>Updated</th>
-                <% user.preplist.forEach(function(p){ %>
-              </tr>
-              <td><%= p.name%></td>
-              <td><%= p.updatedAt.toDateString()%></td>
-              <% }); %>
-            </table>
-          </section>
+   
            
-          </section>
+      
       
 </body>
 </html>

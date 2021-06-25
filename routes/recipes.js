@@ -6,18 +6,16 @@ const request = require('request');
 
 // router.get('/recipes',recipesCtrl.index)
 router.post('/users/:id/recipes', recipesCtrl.create);
-router.get('/users/:id/recipes/:id',recipesCtrl.show)
+router.get('/recipes/:id',recipesCtrl.show)
 
 router.get('/:id/recipes/new',recipesCtrl.new)
 
 
+router.get('/recipes/:id/edit',recipesCtrl.edit)
+router.post('/recipes/:id',recipesCtrl.update)
 
-// router.get('/recipes/:id/edit',recipesCtrl.edit)
 
-
-
-// router.put('/recipes/:id',recipesCtrl.update)
-// router.delete('recipes/:id',recipesCtrl.delete)
+router.delete('/recipes/:id',recipesCtrl.delete)
 
 
 

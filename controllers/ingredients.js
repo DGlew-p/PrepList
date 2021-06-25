@@ -1,21 +1,24 @@
 const Recipe = require('../models/recipes');
-const User = require('../models/users');
 
 
 function create(req, res) {
   Recipe.findById(req.params.id, function(err, recipe) {
-    console.log('INGT R'+recipe)
     recipe.ingredients.push(req.body);
     recipe.save(function(err) {
             if (err) console.log(err);
-            console.log('INGT CREAT')
-        res.redirect(`/recipe/${recipe._id}`);
+        res.redirect(`/recipes/${recipe._id}`);
       });
     });
   }
- 
+
+  function deleteIng(req, res) {
+    Recipe.findById(req.params.id, async function(err, recipe) {
+    await recpie.ingredients.findByIdAndDelete(req.params.id);
+    res.redirect (`/recipes/${recipe._id}`);
+  })
+}
 
 module.exports = {
   create,
-
+  delete:deleteIng
 };

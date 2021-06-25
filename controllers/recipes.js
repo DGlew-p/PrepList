@@ -18,7 +18,7 @@ function create(req, res) {
       console.log(err);
     }
     console.log(recipe + "create R"),
-      res.redirect(`/users/${user.id}/recipe/${user.id}`);
+      res.redirect(`/recipes/${recipe.id}`);
   });
 }
 
@@ -30,38 +30,36 @@ function show(req, res) {
   });
 }
 
+function edit(req, res) {
+  Recipe.findById(req.params.id, function (err, recipe){
+  res.render("recipes/edit", { recipe});
+});
+}
 
-
-
-
-
-
-
-
-
-
-function update(req, res) {
-  Recipe.findById(req.params.id, function (err, recipe) {
-    recipe.push(req.body);
-    save(function (err) {
-      if (err) console.log(err);
-      res.redirect(`/users/${user.id}`);
-    });
+async function update(req, res) {
+  await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true}).then(function(recipe) {
+    res.redirect(`/recipes/${recipe.id}`);
   });
 }
 
 
+// function update(req, res) {
+//   Recipe.findById(req.params.id, function (err, recipe) {
+//     recipe.push(req.body);
+//     save(function (err) {
+//       if (err) console.log(err);
+//       res.redirect(`/recipes/${recipe.id}`);
+//     });
+//   });
+// }
 
-function deleteOne(req, res) {
-  Recipe.deleteOne(req.params.id);
-  res.redirect(`/users/${user.id}`);
+
+async function deleteOne(req, res) {
+  await Recipe.findByIdAndDelete(req.params.id);
+  res.redirect (`/users/`);
 }
 
-function edit(req, res) {
-  let id = req.params.id;
-  let recipeObj = Recipe.getOne(id);
-  res.render("edit.ejs", { recipe: recipeObj });
-}
+
 
 module.exports = {
   show,

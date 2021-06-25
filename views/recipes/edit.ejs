@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Make a Recipe</title>
+  </head>
+  <body>
+    <nav>
+     
+      <a href="/users/<%=recipe.user%>"> back to Dashboard</a>
+    </nav>
+    <h2>Enter a new Recipe</h2>
+    <form id="edit-form" action="/recipes/<%=recipe._id%>" method="PUT">
+    
+      <input type="hidden" name="user" value="<%=recipe.user%>" /> </label
+    > <br />
+      <label
+        >Recpie Name:<br />
+        <input type="String" name="name" value="<%=recipe.name%>"/> </label
+      ><br />
+     
+      <label
+        >yeild:<br />
+        <input type="Number" name="amount" value="<%=recipe.amount%>"/> </label
+      ><br />
+
+      <label
+        >method:<br />
+        <textarea type="String" name="method"  rows='6'><%=recipe.method%></textarea> </label
+      ><br />
+
+      <label
+        >Notes:<br />
+        <textarea type="String" name="notes" rows='6' > <%=recipe.notes%></textarea> </label
+      ><br />
+     
+      <input type="submit" name="" value="confirm" />
+    </form>
+   
+      <label
+    <table>
+        <tr>
+      <th>Ingredients</th>
+      <th>type</th>
+      <th>amount (g)</th>
+      <% recipe.ingredients.forEach(function(i){ %>
+      </tr>
+      <td><%= i.name%></td>
+      <td><%= i.method%></td>
+      <td><%= i.amount%></td>
+    </table>
+      <% }); %>
+   
+ 
+
+
+  </body>
+</html>

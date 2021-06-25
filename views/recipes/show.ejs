@@ -7,6 +7,12 @@
     <title>ONE RECIPE</title>
 </head>
 <body>
+  <nav>
+    <a href="/<%= recipe.user %>/recipes/new">Create another Recipe</a>
+    <a href="/recipes/<%=recipe._id%>/edit"> Edit this Recipe</a>
+    <a href="/users/<%= recipe.user %> "> Back to Dashboard</a>
+   
+  </nav>
     <h1><%= title %></h1>
       <section id="show-page">
         <div>Recipe</div>
@@ -19,7 +25,20 @@
         <div><%=recipe.notes%></div>
         <div>ingredients</div>
       </section>
-  
+          <th>Ingredient</th>
+          <th>type</th>
+          <th>amount (g)</th><br>
+          <% recipe.ingredients.forEach(function(i){ %>
+          </tr>
+          <td><%= i.name%></td>
+          <td><%= i.method%></td>
+          <td><%= i.amount%></td>
+          <td><form action="/ingredients/<%= i.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit">d</button>
+          </form>
+        </td>
+          <% }); %>
   
       <section >
         <form
