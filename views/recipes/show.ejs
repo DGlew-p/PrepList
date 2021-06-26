@@ -46,6 +46,7 @@
           method="POST"
           action="/recipes/<%=recipe._id%>/ingredients"
         >
+        <input type="hidden" name="recipe" value="<%=recipe._id%>" />
         <label
         >name:<br />
         <input type="String" name="name" /> </label

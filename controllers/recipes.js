@@ -1,3 +1,4 @@
+const recipes = require("../models/recipes");
 const Recipe = require("../models/recipes");
 const User = require("../models/users");
 
@@ -19,7 +20,6 @@ function create(req, res) {
   });
 }
 
-
 function show(req, res) {
   Recipe.findById(req.params.id, function (err, recipe) {
       res.render("recipes/show", { title: "Recipe Details", recipe });
@@ -32,10 +32,16 @@ function edit(req, res) {
 });
 }
 
+
 function update(req, res) {
-  Recipe.findByIdAndUpdate(req.params.id, req.body)
-  .then (res.redirect(`/recipes/${recipe.id}`))
-  };
+  Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
+    if (err) {
+      console.log(err);
+    }
+    res.redirect(`/recipes/${recipe.id}`);
+  })
+}
+
 
 
 
