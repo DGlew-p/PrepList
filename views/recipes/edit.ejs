@@ -5,21 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Make a Recipe</title>
+    <title>Recipe</title>
   </head>
   <body>
     <nav>
-     
       <a href="/users/<%=recipe.user%>"> back to Dashboard</a>
     </nav>
-    <h2>Enter a new Recipe</h2>
+    <h2><%=recipe.name%></h2>
+    <h5>Add Ingredients</h5>
+    <form
+      id="add-ingredient-form"
+      method="POST"
+      action="/recipes/<%=recipe._id%>/ingredients"
+    >
+    <input type="hidden" name="recipe"  value="<%=recipe._id%>"/>
+    <label
+    >name:
+    <input type="String" name="name"  required /><br>
+    method:
+    <input type="String" name="method" /> <br>
+    grams:
+    <input type="number" name="amount" /> <br>
+        <input type="submit" value="Add" />
+    </form>
+   
+  
+    <table>
+     
+      <th> Ingredient</th>
+        <th> type</th>
+        <th>amount (g)</th>
+      </tr>
+        <% recipe.ingredients.forEach(function(i){ %>
+    <tr>
+      <td><%= i.name%></td>
+      <td><%= i.method%></td>
+      <td><%= i.amount%></td>
+      <td><form action="/ingredients/<%= i.id %>?_method=DELETE"
+       class="delete-form" method="POST">
+        <button type="submit">del</button></td>
+      </tr>
+      <% }); %>
+      </table>
+   
+    </form>
+
     <form id="edit-form" action='/recipes/<%=recipe._id%>?_method=POST' method='POST'>
-    
-      <input type="hidden" name="user" value="<%=recipe.user%>" /> </label
+     
+      <input  type="hidden" name="user" value="<%=recipe.user%>" /> </label
     > <br />
-      <label
-        >Recpie Name:<br />
-        <input type="String" name="name" value="<%=recipe.name%>"/> </label
+    
+        <input type="hidden" name="name" value="<%=recipe.name%>"/> </label
       ><br />
      
       <label
@@ -28,34 +64,18 @@
       ><br />
 
       <label
-        >method:<br />
-        <textarea type="String" name="method"  rows='6'><%=recipe.method%></textarea> </label
+        >Steps:<br />
+        <textarea type="String" name="method"  cols="30" rows='6'><%=recipe.method%></textarea> </label
       ><br />
 
       <label
         >Notes:<br />
-        <textarea type="String" name="notes" rows='6' > <%=recipe.notes%></textarea> </label
+        <textarea type="String" name="notes"  cols="30" rows='6' > <%=recipe.notes%></textarea> </label
       ><br />
-     
-      <input type="submit" value="confirm" />
+      <input  type="submit" value="Confirm Edits" >
     </form>
-   
-      <label
-    <table>
-        <tr>
-      <th>Ingredients</th>
-      <th>type</th>
-      <th>amount (g)</th>
-      <% recipe.ingredients.forEach(function(i){ %>
-      </tr>
-      <td><%= i.name%></td>
-      <td><%= i.method%></td>
-      <td><%= i.amount%></td>
-    </table>
-      <% }); %>
-   
- 
 
 
+   
   </body>
 </html>

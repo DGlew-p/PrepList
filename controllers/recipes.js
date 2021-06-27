@@ -16,7 +16,7 @@ function create(req, res) {
     if (err) {
       console.log(err);
     }
-      res.redirect(`/recipes/${recipe.id}`);
+      res.redirect(`/recipes/${recipe.id}/edit`);
   });
 }
 
@@ -43,11 +43,11 @@ function update(req, res) {
 }
 
 
-
-
 async function deleteOne(req, res) {
-  await Recipe.findByIdAndDelete(req.params.id);
-  res.redirect (`/users/`);
+  await Recipe.findByIdAndDelete(req.params.id , function (err, recipe){
+  console.log(req.params+'  RPID')
+  res.redirect (`/users/${recipe.user}`);
+})
 }
 
 

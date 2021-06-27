@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>ONE RECIPE</title>
 </head>
 <body>
@@ -13,59 +14,31 @@
     <a href="/users/<%= recipe.user %> "> Back to Dashboard</a>
    
   </nav>
-    <h1><%= title %></h1>
+    <h1><%= recipe.name %></h1>
       <section id="show-page">
-        <div>Recipe</div>
-        <div><%= recipe.name %></div>
+    
         <div>Yeild</div>
         <div><%= recipe.amount %></div>
         <div>Method</div>
         <div><%= recipe.method%></div>
         <div>Notes</div>
         <div><%=recipe.notes%></div>
-        <div>ingredients</div>
-      </section>
-          <th>Ingredient</th>
-          <th>type</th>
-          <th>amount (g)</th><br>
-          <% recipe.ingredients.forEach(function(i){ %>
+        <div><h3>Ingredients</h3></div>
+        <table>
+     <th> Ingredient</th>
+            <th> type</th>
+            <th>grams</th>
           </tr>
+            <% recipe.ingredients.forEach(function(i){ %>
+        <tr>
           <td><%= i.name%></td>
           <td><%= i.method%></td>
           <td><%= i.amount%></td>
-          <td><form action="/ingredients/<%= i.id %>?_method=DELETE"
-            class="delete-form" method="POST">
-            <button type="submit">d</button>
-          </form>
-        </td>
+          <td><input type="checkbox"></td>
+         
+          </tr>
           <% }); %>
-  
-      <section >
-        <form
-          id="add-ingredient-form"
-          method="POST"
-          action="/recipes/<%=recipe._id%>/ingredients"
-        >
-        <input type="hidden" name="recipe" value="<%=recipe._id%>" />
-        <label
-        >name:<br />
-        <input type="String" name="name" /> </label
-      ><br />
-    
-      <label
-        >method:<br />
-        <input type="String" name="method" /> </label
-      ><br />
-    
-      <label
-        >Amount:<br />
-        <input type="number" name="amount" /> </label
-      ><br /> <br>
-            <input type="submit" value="Add Ingredient" />
-      
-        </form>
-      </section>
-        <table>
+          </table>
         
 </body>
 </html>
