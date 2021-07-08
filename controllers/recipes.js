@@ -1,10 +1,11 @@
-const recipes = require("../models/recipes");
 const Recipe = require("../models/recipes");
 const User = require("../models/users");
 
 function newRecipe(req, res) {
   User.findById(req.params.id, function (err, user) {
+    if (err) console.log(err);
     Recipe.find({ user: req.params.id }, function (err, recipe) {
+      if (err) console.log(err);
       res.render("recipes/new", { user, recipe });
     });
   });
@@ -12,45 +13,39 @@ function newRecipe(req, res) {
 
 function create(req, res) {
   const recipe = new Recipe(req.body);
-  recipe.save(function (err, cat) {
-    if (err) {
-      console.log(err);
-    }
-      res.redirect(`/recipes/${recipe.id}/edit`);
+  recipe.save(function (err) {
+    if (err) console.log(err);
+    res.redirect(`/recipes/${recipe.id}/edit`);
   });
 }
 
 function show(req, res) {
   Recipe.findById(req.params.id, function (err, recipe) {
-      res.render("recipes/show", { title: "Recipe Details", recipe });
+    if (err) console.log(err);
+    res.render("recipes/show", { title: "Recipe Details", recipe });
   });
 }
 
 function edit(req, res) {
-  Recipe.findById(req.params.id, function (err, recipe){
-  res.render("recipes/edit", { recipe});
-});
+  Recipe.findById(req.params.id, function (err, recipe) {
+    if (err) console.log(err);
+    res.render("recipes/edit", { recipe });
+  });
 }
-
 
 function update(req, res) {
-  Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
-    if (err) {
-      console.log(err);
-    }
+  Recipe.findByIdAndUpdate(req.params.id, req.body, function (err, recipe) {
+    if (err) console.log(err);
     res.redirect(`/recipes/${recipe.id}`);
-  })
+  });
 }
-
 
 async function deleteOne(req, res) {
-  await Recipe.findByIdAndDelete(req.params.id , function (err, recipe){
-  console.log(req.params+'  RPID')
-  res.redirect (`/users/${recipe.user}`);
-})
+  await Recipe.findByIdAndDelete(req.params.id, function (err, recipe) {
+    if (err) console.log(err);
+    res.redirect(`/users/${recipe.user}`);
+  });
 }
-
-
 
 module.exports = {
   show,

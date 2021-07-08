@@ -31,24 +31,27 @@
    
   
     <table>
-     
-      <th> Ingredient</th>
+    <tr>
+        <th> Ingredient</th>
         <th> type</th>
         <th>amount (g)</th>
-      </tr>
+    </tr>
         <% recipe.ingredients.forEach(function(i){ %>
     <tr>
-      <td><%= i.name%></td>
-      <td><%= i.method%></td>
-      <td><%= i.amount%></td>
-      <td><form action="/ingredients/<%= i.id %>?_method=DELETE"
+        <td><%= i.name%></td>
+        <td><%= i.method%></td>
+        <td><%= i.amount%></td>
+        <td>
+          <form action="/ingredients/<%= i.id %>?_method=DELETE"
        class="delete-form" method="POST">
-        <button type="submit">del</button></td>
-      </tr>
-      <% }); %>
-      </table>
-   
+          <button type="submit">del</button>
+        </td>
+    </tr>
     </form>
+      <% }); %>
+    </table>
+   
+  
 
     <form id="edit-form" action='/recipes/<%=recipe._id%>?_method=POST' method='POST'>
      
